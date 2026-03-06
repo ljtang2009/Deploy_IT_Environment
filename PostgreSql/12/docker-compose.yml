@@ -1,0 +1,40 @@
+name: postgresql-12
+services:
+  postgres12:
+    image: postgres:12
+    container_name: postgresql-container-12
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POST_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      TZ: ${TZ}
+      # 指定 PGDATA（和挂载卷对应）
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+    ports:
+      - "${PG_PORT:-5432}:5432"
+
+    volumes:
+      # 数据持久化
+      - ./data:/var/lib/postgresql/data
+
+      # 自定义配置
+      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+      - ./config/pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+
+      # 初始化脚本
+      - ./initdb/initdb:/docker-entrypoint-initdb.d:ro
+
+    command:
+      - postgres
+      - -c
+      - config_file=/etc/postgresql/postgresql.conf
+      - -c
+      - hba_file=/etc/postgresql/pg_hba.conf
+      - -c
+      - data_directory=/var/lib/postgresql/data/pgdata
+
+    # 调整共享内存，避免某些操作报错
+    shm_size: 128mb

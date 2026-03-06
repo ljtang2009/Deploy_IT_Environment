@@ -7,3 +7,6 @@ Mysql/8.0/data/
 
 Mysql/5.7/data/
 !Mysql/5.7/data/.gitkeep
+
+PostgreSql/12/data/
+!PostgreSql/12/data/.gitkeep

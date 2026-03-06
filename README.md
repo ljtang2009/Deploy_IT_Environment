@@ -8,3 +8,8 @@
 
 ### Mysql8.0
 [Mysql8.0](https://github.com/ljtang2009/Deploy_IT_Environment/tree/main/Mysql/8.0)
+
+## PostgreSql
+
+### PostgreSql12
+[PostgreSql12](https://github.com/ljtang2009/Deploy_IT_Environment/tree/main/PostgreSql/12)
