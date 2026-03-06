@@ -10,3 +10,6 @@ Mysql/5.7/data/
 
 PostgreSql/12/data/
 !PostgreSql/12/data/.gitkeep
+
+PostgreSql/16/data/
+!PostgreSql/16/data/.gitkeep

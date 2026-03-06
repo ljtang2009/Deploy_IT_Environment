@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POST_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
-      TZ: ${TZ}
+      TZ: ${TZ:-Asia/Shanghai}
       # 指定 PGDATA（和挂载卷对应）
       PGDATA: /var/lib/postgresql/data/pgdata
 
