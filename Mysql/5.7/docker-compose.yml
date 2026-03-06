@@ -1,0 +1,23 @@
+name: mysql-server-5-7
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-container-5-7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      TZ: Asia/Shanghai
+    ports:
+      - "${PORT}:3306"
+    volumes:
+      # 数据持久化挂载
+      - ./data:/var/lib/mysql
+      - ./config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+      # 初始化脚本目录（可选，容器第一次启动时自动执行）
+      # - ./init:/docker-entrypoint-initdb.d
+    command:
+      --max_connections=1000
+      --default-authentication-plugin=mysql_native_password
+    # 解决 Windows 下 MySQL 容器权限问题导致无法写入数据
+    privileged: true
