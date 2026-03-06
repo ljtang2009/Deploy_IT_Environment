@@ -1,2 +1,10 @@
 # Deploy_IT_Environment
 部署IT开发环境
+
+## Mysql
+
+### Mysql5.7
+[Mysql5.7](https://github.com/ljtang2009/Deploy_IT_Environment/tree/main/Mysql/5.7)
+
+### Mysql8.0
+[Mysql8.0](https://github.com/ljtang2009/Deploy_IT_Environment/tree/main/Mysql/8.0)

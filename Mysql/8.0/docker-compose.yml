@@ -1,0 +1,23 @@
+name: mysql-server-8-0
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container-8-0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+    ports:
+      - "${PORT}:3306"
+    volumes:
+      # 只保留数据目录的挂载
+      - ./data:/var/lib/mysql
+      # 暂时注释掉配置文件挂载，避免权限问题
+      # - ./config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+      - ./init:/docker-entrypoint-initdb.d
+    command:
+      # 修正后的认证插件参数
+      - --default-authentication-plugin=mysql_native_password
+      # 把原本在 my.cnf 里的关键配置写在这里，避免权限问题
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+08:00

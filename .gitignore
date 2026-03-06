@@ -1,0 +1,9 @@
+.history
+
+.env
+
+Mysql/8.0/data/
+!Mysql/8.0/data/.gitkeep
+
+Mysql/5.7/data/
+!Mysql/5.7/data/.gitkeep
