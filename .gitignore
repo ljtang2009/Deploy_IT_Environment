@@ -2,6 +2,10 @@
 
 .env
 
+.kilocode
+
+.arts
+
 Mysql/8.0/data/
 !Mysql/8.0/data/.gitkeep
 

@@ -1,0 +1,5 @@
+# 排除 app 目录下的所有文件和子目录
+app/*
+
+# 但保留 .gitkeep 文件
+!app/.gitkeep
